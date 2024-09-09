@@ -1,29 +1,26 @@
 {
+  "version": 1,
   "canisters": {
-    "icp-frontend-project-1-backend": {
-      "main": "src/icp-frontend-project-1-backend/main.mo",
-      "type": "motoko"
+    "backend": {
+      "type": "motoko",
+      "main": "src/backend/main.mo"
     },
-    "icp-frontend-project-1-frontend": {
-      "dependencies": [
-        "icp-frontend-project-1-backend"
-      ],
-      "source": [
-        "src/icp-frontend-project-1-frontend/dist"
-      ],
+    "frontend": {
       "type": "assets",
-      "workspace": "icp-frontend-project-1-frontend"
+      "dependencies": ["backend"],
+      "source": ["src/backend/dist"],
+      "workspace": "backend"
     },
     "internet_identity": {
+      "type": "custom",
       "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz",
       "frontend": {},
       "remote": {
         "id": {
           "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
         }
-      },
-      "type": "custom",
-      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+      }
     }
   },
   "defaults": {
@@ -32,6 +29,5 @@
       "packtool": ""
     }
   },
-  "output_env_file": ".env",
-  "version": 1
+  "output_env_file": ".env"
 }
