@@ -8,8 +8,8 @@
     "frontend": {
       "type": "assets",
       "dependencies": ["backend"],
-      "source": ["src/backend/dist"],
-      "workspace": "backend"
+      "source": ["src/frontend/dist"],
+      "workspace": "icp-frontend-project-1-frontend"
     },
     "internet_identity": {
       "type": "custom",
